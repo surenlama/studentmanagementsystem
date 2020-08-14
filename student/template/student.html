@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: red
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Management System</h1>
+    <p>Please fill up the form</p>
+
+    <form action="{% url 'student'%}" method="POST" enctype="multipart/form-data">
+        {%csrf_token%}
+        <label for="myfile">Profile picture</label>
+        <input type="file" name="myfile"> <br><br><br>
+        <label for="studentname">Studentname</label>
+        <input type="text" name="studentname" placeholder="Enter Studentname"><br>
+        <label for="studentemail">Studentemail</label>
+        <input type="text" name="studentemail" placeholder="Enter Studentemail"><br>
+        <label for="studentphone">Student phone</label>
+        <input type="number" name="studentphone" placeholder="Enter Studentphone"><br>
+        <label for="studentage">Student Age</label>
+        <input type="number" name="studentage" placeholder="Enter StudentAge"><br>
+        <label for="studentrollno">Student rollno</label>
+        <input type="number" name="studentrollno" placeholder="Enter Studentrollno"><br>
+        <label for="studentgender">Student gender</label>
+        <input type="text" name="studentgender" placeholder="Enter Studentgender"><br>
+        <button type="submit" >submit</button><br><br>
+
+  </form>
+<form action="{% url 'home'%}" method="post">
+    {%csrf_token%}
+    <button type="submit">Home</button>
+</form>
+ 
+<br><br>
+<a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>

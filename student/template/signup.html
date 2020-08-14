@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>   {% block title%} {% endblock %}</title>
+    
+    <style>
+        body{
+            background: white;
+            font-family: new times roman;
+            text-align: justify;
+	    }
+        label{
+            width: 120px;
+		    display: inline-block;	
+            background-color: white;
+        }
+        .form{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+  
+    <!-- {% load static %} -->
+    <div class="form">
+    <form action="{% url 'register'%}" method="GET">
+        <fieldset>
+        <legend>Fill the form below to complete registration</legend><br><br>
+        {% if msg %}       
+        <p> {{msg}}</p>
+        {% endif %}
+        
+        <label for="username">Username</label>
+        <input type="text" name="username" placeholder="Enter Username"><br>
+        <label for="password">Password</label>
+        <input type="password" name="password" placeholder="Enter Password"><br>
+        <label for="repassword">Repassword</label>
+        <input type="password" name="repassword" placeholder="Enter Repassword"><br>
+        <button type="submit" >Register !</button><br><br>
+        <!-- <a href="{%static 'suren.txt'%}">Login</a> -->
+        <a href="{% url 'signin' %}">Login here</a>
+        <br><br>
+        </fieldset>
+       
+    </form>
+</div>
+
+</body>
+</html>

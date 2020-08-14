@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    <style>
+        .form{
+            background-color: red;
+        }      
+    </style>
+</head>
+<body>
+  <div class="form">
+   <form action="{% url 'login'%}" method="GET">
+      <fieldset>
+      <legend>Fill the form below to Login</legend><br>
+    {% if error%}
+    <p>{{error}}</p>
+    {% endif %}
+    <label for="username">Username</label>
+    <input type="text" name="username" placeholder="Enter Username"><br>
+    <label for="password">Password</label>
+    <input type="password" name="password" placeholder="Enter password"><br>
+    <button type="submit" >Login !</button><br><br>
+    <a href="{% url 'signup' %}">Register here</a>
+       </fieldset>
+   </form>
+  </div>
+</body>
+</html>

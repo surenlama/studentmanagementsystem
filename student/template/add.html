@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <form action="{% url 'addstu' %}" method="post">
+      {% csrf_token%}
+  <button type="submit">Add student</button>
+</form>
+<table border="1">
+    <tr>
+        <th>StudentProfile</th>
+        <th>Studentname</th>
+        <th>Studentemail</th>
+        <th>Studentphone</th>
+        <th>Studentrollno</th>
+        <th>Studentage</th>
+        <th>Studentgender</th>
+        <th>Actions</th>
+    </tr>
+    
+    {% for u in uploads%}
+      <tr>
+          <form action="/delete/{{ u.id }}/" method="post">
+            {% csrf_token %}
+        <td><img src="{{u.image}}" alt="" srcset="" width="200px"></td>
+          <td>{{u.studentname}}</td>
+          <td><p>{{u.studentemail}}</p></td>
+          <td><p>{{u.studentphone}}</p></td>
+          <td><p>{{u.studentrollno}}</p></td>
+          <td><p>{{u.studentage}}</p></td>
+          <td><p>{{u.studentgender}}</p></td>
+          <td>
+              <a href="/delete/{{ u.id }}">Delete</a>
+              <!-- <a href="/edit/{{ u.id }}">Edit</a> -->
+          </td>
+        </form>
+      </tr>
+      {% endfor %} 
+  </table>
+
+<br><br>
+<a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>
